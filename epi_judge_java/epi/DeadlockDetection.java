@@ -32,19 +32,9 @@ public class DeadlockDetection {
     }
   }
 
+  // TODO - you fill in here.
   public static boolean isDeadlocked(List<GraphVertex> graph) {
-    // TODO - you fill in here.
 
-    // // populate map
-    // Map<Integer, List<Integer>> map = new HashMap<>();
-    // for(GraphVertex start : graph){
-    //   start.getEdges;
-    //   // for(Edge e : start.edge){
-    //   //   System.out.println(e.from);
-    //   //   System.out.println(e.to);
-    //   // }
-    // }
-    return true;
   }
   @EpiUserType(ctorParams = {int.class, int.class})
   public static class Edge {
