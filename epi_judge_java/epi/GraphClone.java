@@ -26,11 +26,39 @@ public class GraphClone {
 
   // TODO - you fill in here.
   public static GraphVertex cloneGraph(GraphVertex graph) {
+
     if (graph == null){
       return null;
     }
 
-    return graph;
+
+    GraphVertex clone = new GraphVertex(0);
+
+    Queue<GraphVertex> queue = new ArrayDeque<>();
+    Set<GraphVertex> visited = new HashSet<>();
+    queue.add(graph);
+
+
+
+    while(!queue.isEmpty()){
+      GraphVertex current = queue.remove(); // This is not the copy 
+      GraphVertex newVertex = new GraphVertex(current.label);
+ 
+      clone.edges.add(newVertex);
+
+      visited.add(current);
+
+      for(GraphVertex edge : current.edges){
+        if(!visited.contains(edge)){
+          queue.add(edge);
+        }
+        newVertex.edges.add(edge);
+      }
+
+
+    }
+
+    return clone.edges.get(0);
   }
 
 
