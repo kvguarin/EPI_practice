@@ -30,24 +30,7 @@ public class GraphClone {
       return null;
     }
 
-
-    Map<GraphVertex, GraphVertex> vertexMap =  new HashMap<>();
-    Queue<GraphVertex> q = new ArrayDeque<>();
-    q.add(graph);
-    vertexMap.put(graph, new GraphVertex(graph.label));
-
-    while(!q.isEmpty()){
-      GraphVertex v = q.remove();
-      for(GraphVertex e : v.edges){
-        // Try to copy vertex e
-        if(vertexMap.putIfAbsent(e, new GraphVertex(e.label)) == null){
-          q.add(e);
-        }
-        // copy edge
-        vertexMap.get(v).edges.add(vertexMap.get(e));
-      }
-    }
-    return vertexMap.get(graph);
+    return graph;
   }
 
 
